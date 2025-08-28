@@ -1,14 +1,17 @@
-CONFIG = --config-file "./arduino-cli.yaml"
-FQBN = --fqbn "arduino:avr:micro"
-SKETCH = "macropad"
-LIBRARIES = "Keypad" "HID-Project"
-PORT = --port "/dev/ttyACM0"
+# Used to keep Arduino stuff contained in this repository
+CONFIG = --config-file ./arduino-cli.yaml
+
+SKETCH = macropad
+LIBRARIES = Keypad HID-Project
+
+FQBN = --fqbn arduino:avr:micro
+PORT = --port /dev/ttyACM0
 
 setup:
-	arduino-cli $(CONFIG) lib install $(LIBRARIES)
+	arduino-cli lib install $(LIBRARIES) $(CONFIG)
 
 compile:
-	arduino-cli $(CONFIG) compile $(SKETCH) $(FQBN)
+	arduino-cli compile $(SKETCH) $(CONFIG) $(FQBN)
 
 upload:
-	arduino-cli $(CONFIG) upload $(SKETCH) $(FQBN) $(PORT)
+	arduino-cli upload $(SKETCH) $(CONFIG) $(FQBN) $(PORT)

@@ -1,0 +1,7 @@
+board_manager:
+  additional_urls: []
+directories:
+  data: ./.arduino
+  downloads: ./.arduino/downloads
+  user: ./
+locale: en

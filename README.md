@@ -37,3 +37,6 @@ By default, it will create the config file like so:
 { 6, 7 } 6: Media play/pause | 7: Unused
 { 8, 9 } 8: Unused | 9: Unused
 ```
+
+# Standlone
+If you don't want to use the Nimpad host client, you can find a completely standlone Arduino sketch in `other`

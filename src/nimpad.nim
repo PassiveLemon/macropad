@@ -18,7 +18,7 @@ block macropad:
 
   let
     portName: string = "/dev/ttyACM0"
-    serialPort = newSerialStream(portName, 115200, Parity.None, 8, StopBits.One, Handshake.None, buffered=false)
+    serialPort = newSerialStream(portName, 9600, Parity.None, 8, StopBits.One, Handshake.None, buffered=false)
   defer: close(serialPort)
 
   initDevice()

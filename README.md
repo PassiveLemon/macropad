@@ -30,13 +30,30 @@ If you are using Nimpad for the first time, it will create a default config file
 # Configuration (config.json)
 The intended way to currently configure Nimpad is by the config.json.
 By default, it will create the config file like so:
+```json
+[
+  [ "KEY_ACTION", "VOLUMEDOWN" ],
+  [ "KEY_ACTION", "VOLUMEUP" ],
+  [ "KEY_ACTION", "VOLUMEMUTE" ],
+  [ "KEY_ACTION", "SCROLLLOCK" ],
+  [ "KEY_ACTION", "PREVIOUSSONG" ],
+  [ "KEY_ACTION", "NEXTSONG" ],
+  [ "KEY_ACTION", "PLAYPAUSE" ],
+  [ "KEY_ACTION", "" ],
+  [ "KEY_ACTION", "" ],
+  [ "KEY_ACTION", "" ]
+]
 ```
-{ 0, 1 } 0: Volume down | 1: Volume up
-{ 2, 3 } 2: Mute system | 3: Scrolllocl, used for Discord press-to-mute and push-to-talk for games
-{ 4, 5 } 4: Media previous | 5: Media next
-{ 6, 7 } 6: Media play/pause | 7: Unused
-{ 8, 9 } 8: Unused | 9: Unused
-```
+- 0: Volume down
+- 1: Volume up
+- 2: Mute system
+- 3: Scrolllock, used for Discord press-to-mute and game push-to-talk
+- 4: Media previous
+- 5: Media next
+- 6: Media play/pause
+- 7: Unused
+- 8: Unused
+- 9: Unused
 
 # Standlone
 If you don't want to use the Nimpad host client, you can find a completely standlone Arduino sketch in `other`

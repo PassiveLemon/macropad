@@ -19,7 +19,7 @@ https://www.printables.com/model/1400774-macropad
 - Clone the repo, cd to src
 - Run `nim c -r nimpad`
 - Edit the generated config file in your `~/.config/nimpad/config.json`.
-- You can also supply a config file with `-f="<path to config.json>"`, and a serial port with `-p="<port>" .
+- You can also supply a config file with `-f="<path to config.json>"`, and a serial port with `-p="<port>"` .
   - Arguments can be found by tacking `-h` or `--help`
 
 > [!IMPORTANT]

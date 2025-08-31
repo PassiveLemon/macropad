@@ -1,6 +1,6 @@
 # nimpad
 
-A WIP Nim based client for a WIP DIY macropad.
+A Nim based client for a DIY macropad.
 
 By communicating with an Arduino in the macropad, nimpad can send keyboard inputs or run shell commands.
 
@@ -9,7 +9,7 @@ By communicating with an Arduino in the macropad, nimpad can send keyboard input
 - A user in the "input" and "dialout" group. You can use sudo privileges but if you want to use this as a daemon to run shell commands, sudo is not recommended.
 - Nimble packages: `serial` and [`libevdev`](https://github.com/PassiveLemon/libevdev-nim)
 
-# 3D Model
+## 3D Model
 https://www.printables.com/model/1400774-macropad
 
 # Usage
@@ -18,13 +18,21 @@ https://www.printables.com/model/1400774-macropad
 ### Source:
 - Clone the repo, cd to src
 - Run `nim c -r nimpad`
+- Edit the generated config file in your `~/.config/nimpad/config.json`.
+- You can also supply a config file with `-f="<path to config.json>"`, and a serial port with `-p="<port>" .
+  - Arguments can be found by tacking `-h` or `--help`
+
+> [!IMPORTANT]
+> Nimpad ONLY supports macropads with 10 or less keys.
+
+If you are using Nimpad for the first time, it will create a default config file and quit. Please configure this config file before running it again as it does send keyboard inputs and run commands. Details [below](https://github.com/PassiveLemon/nimpad?tab=readme-ov-file#configuration-configjson).
 
 # Configuration (config.json)
-Currently external configuration is not possible, but is planned. For now, you must clone the repository and edit the MACROPAD_KEYS in constants.nim.
-This is the currently configured matrix:
+The intended way to currently configure Nimpad is by the config.json.
+By default, it will create the config file like so:
 ```
 { 0, 1 } 0: Volume down | 1: Volume up
-{ 2, 3 } 2: Mute system | 3: Press to mute for Discord/push to talk for games
+{ 2, 3 } 2: Mute system | 3: Scrolllocl, used for Discord press-to-mute and push-to-talk for games
 { 4, 5 } 4: Media previous | 5: Media next
 { 6, 7 } 6: Media play/pause | 7: Unused
 { 8, 9 } 8: Unused | 9: Unused

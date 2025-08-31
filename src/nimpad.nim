@@ -1,31 +1,35 @@
 import
   std / [
-    os,
     strformat,
     streams
   ]
 
 import
-  constants,
-  input,
-  logging
+  nimpad / [
+    config,
+    input,
+    logging
+  ]
 
 import serial
 
 
 block macropad:
-  initLogger("info", false)
+  initConfig()
 
-  let
-    portName: string = "/dev/ttyACM0"
-    serialPort = newSerialStream(portName, 9600, Parity.None, 8, StopBits.One, Handshake.None, buffered=false)
+  # Test all serial ports and somehow receive a special string or something from the macropad to verify?
+  var serialPort: SerialStream
+  try:
+    serialPort = newSerialStream(globalConfig.config.port, 9600, Parity.None, 8, StopBits.One, Handshake.None, buffered=false)
+  except InvalidSerialPortError:
+    fatal(fmt"Port {globalConfig.config.port} is not a valid serial port.")
+    quit(1)
   defer: close(serialPort)
 
   initDevice()
   defer: cleanupDevice()
 
-  sleep(500)
-  info(fmt"Opened serial port '{portName}', receiving...")
+  notice(fmt"Opened serial port '{globalConfig.config.port}', receiving...")
 
   var buf = newString(2)
 
@@ -33,4 +37,4 @@ block macropad:
     let n = serialPort.readData(buf.cstring, buf.len)
     if n > 0:
       let chunk = buf[0..<n]
-      keyHandler(chunk, MACROPAD_KEYS)
+      keyHandler(chunk, globalConfig.macropad)

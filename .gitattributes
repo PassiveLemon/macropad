@@ -2,5 +2,6 @@
 * text=auto
 
 # LF
-*.nix text eol=lf
 *.ino text eol=lf
+*.nim text eol=lf
+*.nix text eol=lf

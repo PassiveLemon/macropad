@@ -1,7 +1,7 @@
 # Used to keep Arduino stuff contained in this repository
 CONFIG = --config-file ./arduino-cli.yaml
 
-SKETCH = macropad
+SKETCH = nimpad
 LIBRARIES = Keypad HID-Project
 
 FQBN = --fqbn arduino:avr:micro
@@ -13,5 +13,5 @@ setup:
 compile:
 	arduino-cli compile $(SKETCH) $(CONFIG) $(FQBN)
 
-upload:
+upload: compile
 	arduino-cli upload $(SKETCH) $(CONFIG) $(FQBN) $(PORT)

@@ -9,6 +9,9 @@ By communicating with an Arduino in the macropad, nimpad can send keyboard input
 - A user in the "input" and "dialout" group. You can use sudo privileges but if you want to use this as a daemon to run shell commands, sudo is not recommended.
 - Nimble packages: `serial` and [`libevdev`](https://github.com/PassiveLemon/libevdev-nim)
 
+# 3D Model
+https://www.printables.com/model/1400774-macropad
+
 # Usage
 ### Nix:
 - You can get the package in my [flake repository](https://github.com/PassiveLemon/lemonake).
